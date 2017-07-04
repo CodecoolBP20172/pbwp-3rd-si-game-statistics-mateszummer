@@ -85,8 +85,6 @@ def get_genres(file_name):
     iterations = 1
     return(genres)
 
-print(get_genres("game_stat.txt"))
-
 def when_was_top_sold_fps(file_name):
     try:
         list_by_items = []
