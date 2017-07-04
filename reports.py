@@ -66,7 +66,26 @@ def get_genres(file_name):
     for i in range(len(list_by_items)):
         if list_by_items[i][3] not in genres:
             genres.append(list_by_items[i][3])
-    return sorted(genres)
+    iterations = 1
+    N = len(genres)
+    while iterations < N:
+        j = 0
+        while j <= N - 2:
+            if genres[j][0].lower() > genres[j+1][0].lower():
+                temp = genres[j+1]
+                genres[j+1] = genres[j]
+                genres[j] = temp
+            if genres[j][0].lower() == genres[j+1][0].lower():
+                if genres[j][1].lower() > genres[j+1][1].lower():
+                    temp = genres[j+1]
+                    genres[j+1] = genres[j]
+                    genres[j] = temp
+            j = j +1
+        iterations = iterations + 1
+    iterations = 1
+    return(genres)
+
+print(get_genres("game_stat.txt"))
 
 def when_was_top_sold_fps(file_name):
     try:
