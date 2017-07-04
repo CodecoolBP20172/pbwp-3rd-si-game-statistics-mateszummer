@@ -2,7 +2,7 @@ import reports
 with open("export_answers.txt", "w") as f:
     f.write(str(reports.count_games("game_stat.txt")))
     f.write("\n")
-    f.write(str(reports.decide("game_stat.txt", "2010")))
+    f.write(str(reports.decide("game_stat.txt", "1998")))
     f.write("\n")
     f.write(str(reports.get_latest("game_stat.txt")))
     f.write("\n")

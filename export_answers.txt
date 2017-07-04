@@ -1,5 +1,5 @@
 24
-None
+True
 Diablo III
 7
 24
