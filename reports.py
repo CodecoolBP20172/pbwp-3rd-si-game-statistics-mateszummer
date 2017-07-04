@@ -69,12 +69,17 @@ def get_genres(file_name):
     return sorted(genres)
 
 def when_was_top_sold_fps(file_name):
-    list_by_items = []
-    top_sold = {}
-    with open(file_name) as f:
-        for line in f:
-            if "First-person shooter" in line:
-                list_by_items.append(line.split("	"))
-    for i in range(len(list_by_items)):
-        top_sold[list_by_items[i][1]] = list_by_items[i][2]
-    return int(top_sold[max(top_sold.keys() , key=float)])
+    try:
+        list_by_items = []
+        top_sold = {}
+        with open(file_name) as f:
+            for line in f:
+                if "First-person shooter" in line:
+                    list_by_items.append(line.split("	"))
+        if len(list_by_items) == 0:
+            raise ValueError
+        for i in range(len(list_by_items)):
+            top_sold[list_by_items[i][1]] = list_by_items[i][2]
+        return int(top_sold[max(top_sold.keys() , key=float)])
+    except ValueError:
+        return "Exterminate. Exterminate"
